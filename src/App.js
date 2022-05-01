@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Carousel from './pages/Home/Carousel/Carousel';
 import Home from './pages/Home/Home';
 import Navbar from './pages/Shared/Navbar/Navbar';
 
@@ -9,6 +10,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/carousel' element={<Carousel></Carousel>}></Route>
       </Routes>
     </div>
   );
