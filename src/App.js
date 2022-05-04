@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Grocery from './pages/Home/Grocery/Grocery';
 import GroceryDetails from './pages/Home/GroceryDetails/GroceryDetails';
 import Home from './pages/Home/Home';
 import Navbar from './pages/Shared/Navbar/Navbar';
