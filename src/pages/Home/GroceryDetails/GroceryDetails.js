@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 const GroceryDetails = () => {
     const { id } = useParams()
     const [grocery, setGrocery] = useState({})
+    const [updateQuantity, setUpdateQuantity] = useState(0)
     useEffect(() => {
         const url = `http://localhost:5000/grocery/${id}`
         fetch(url)
@@ -24,6 +25,8 @@ const GroceryDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log('success', data)
+                setUpdateQuantity(data)
+
                 //toast
 
             });
