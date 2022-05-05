@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useGrocery from '../../Hooks/useGrocery';
 import Carousel from './Carousel/Carousel';
 import Grocery from './Grocery/Grocery';
+import ManageInventory from './ManageInventory/ManageInventory';
 
 const Home = () => {
     const [grocery, setGrocery] = useGrocery()
