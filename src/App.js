@@ -5,6 +5,7 @@ import GroceryDetails from './pages/Home/GroceryDetails/GroceryDetails';
 import Home from './pages/Home/Home';
 import ManageInventory from './pages/Home/ManageInventory/ManageInventory';
 import Navbar from './pages/Shared/Navbar/Navbar';
+import Register from './pages/Shared/Register/Register';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/grocery-details/:id' element={<GroceryDetails></GroceryDetails>}></Route>
         <Route path='/manage-inventory' element={<ManageInventory></ManageInventory>}></Route>
         <Route path='/add-item' element={<AddItem></AddItem>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
     </div>
   );
