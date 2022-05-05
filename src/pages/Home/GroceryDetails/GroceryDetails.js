@@ -94,21 +94,9 @@ const GroceryDetails = () => {
             {/* update stock section  */}
             <div>
                 <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-10">
-                    <form onSubmit={updateStockQuantity}>
+                    <form>
                         <div className="form-group mb-6">
-                            <input type="text" name='increaseQuantity' className="form-control block w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Update Stock" />
+                            <input type="text" name='increaseQuantity' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Update Stock" />
                         </div>
 
 
