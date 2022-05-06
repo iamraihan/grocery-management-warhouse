@@ -1,31 +1,26 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
-const Register = () => {
+const Login = () => {
     const navigate = useNavigate()
 
     const [
-        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-
-
-    const registerHandler = event => {
+    const loginSubmitHandler = event => {
         event.preventDefault()
         const email = event.target.email.value
         const password = event.target.password.value
-        const confirmPassword = event.target.confirmPassword.value
-
-        // console.log(email, password, confirmPassword);
-        createUserWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password)
         navigate('/')
-
+        console.log(email, password);
     }
     return (
         <div>
@@ -45,7 +40,7 @@ const Register = () => {
 
                             <SocialLogin></SocialLogin>
 
-                            <form onSubmit={registerHandler}>
+                            <form onSubmit={loginSubmitHandler} >
 
 
 
@@ -74,15 +69,7 @@ const Register = () => {
                                         placeholder="Password"
                                     />
                                 </div>
-                                {/* Confirm Password input  */}
-                                <div className="mb-6">
-                                    <input
-                                        type="password" name='confirmPassword'
-                                        className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
-                                        placeholder="Confirm Password"
-                                    />
-                                </div>
 
                                 <div className="flex justify-between items-center mb-6">
                                     <a href="#!" className="text-gray-800">Forgot password?</a>
@@ -90,15 +77,15 @@ const Register = () => {
 
                                 <div className="text-center lg:text-left">
                                     <input
-                                        type="submit" value='Sign Up'
+                                        type="submit" value='Sign In'
                                         className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer"
                                     >
                                         {/* Login */}
                                     </input>
                                     <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                                        Don't have an account?
-                                        <Link className='text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out' to='/login'>
-                                            Login
+                                        Already have an account?
+                                        <Link className='text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out' to='/register'>
+                                            Register
                                         </Link>
                                     </p>
                                 </div>
@@ -107,8 +94,8 @@ const Register = () => {
                     </div>
                 </div>
             </section >
-        </div >
+        </div>
     );
 };
 
-export default Register;
+export default Login;
