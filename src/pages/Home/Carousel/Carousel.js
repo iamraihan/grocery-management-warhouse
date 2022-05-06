@@ -35,8 +35,8 @@ const Carousel = () => {
 
                     />
                     <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <h5 className="text-xl">All Product Gallery</h5>
+                        <p>All Product have gallery and so you can buy product easily.</p>
                     </div>
                 </div>
                 <div className="carousel-item relative float-left w-full">
@@ -47,8 +47,8 @@ const Carousel = () => {
 
                     />
                     <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <h5 className="text-xl">Product for Everyone</h5>
+                        <p>Every product available here child adult and Everyone.</p>
                     </div>
                 </div>
                 <div className="carousel-item relative float-left w-full">
@@ -59,8 +59,8 @@ const Carousel = () => {
 
                     />
                     <div className="carousel-caption hidden md:block absolute text-center">
-                        <h5 className="text-xl">Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h5 className="text-xl">Order By Mobile Apps</h5>
+                        <p>you can order any product using mobile apps..</p>
                     </div>
                 </div>
             </div>

@@ -28,8 +28,26 @@ const Navbar = () => {
                     <CustomLink className='  mr-8' to='/blogs'>Blogs</CustomLink>
                     <CustomLink className='  mr-8' to='/about'>About</CustomLink>
 
+                    {/* {
+                        user && <Link to='/manage-inventory' className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer  px-6 py-1'>Manage Items</Link>
+                    } */}
+
                     {
-                        user ? <button onClick={logout} className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer  px-6 py-1'>Logout</button>
+                        user ? <>
+                            <Link to='/grocery-details/626e7953cd855455a6c6aafc' className=' bg-red-600 text-white rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer capitalize px-6 py-1 mr-3'>Manage Items</Link>
+
+                            <Link to='/add-item' className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer capitalize px-6 py-1 mr-3'>Add Items</Link>
+
+                            <Link to='/manage-inventory' className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer capitalize px-6 py-1 mr-3'>My Items</Link>
+
+                            <button onClick={logout} className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer  px-6 py-1'>Logout</button>
+
+
+
+
+                        </>
+
+
                             :
                             <Link to='/login' className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer capitalize px-6 py-1'>Login</Link>
                     }

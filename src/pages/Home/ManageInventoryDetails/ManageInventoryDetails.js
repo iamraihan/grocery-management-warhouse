@@ -1,3 +1,4 @@
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
 const ManageInventoryDetails = ({ grocery }) => {
 
@@ -7,18 +8,25 @@ const ManageInventoryDetails = ({ grocery }) => {
 
     // console.log(grocery);
     const deleteData = id => {
-        console.log(id);
-        fetch(`http://localhost:5000/groceries/${id}`, {
-            method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                console.log('into delete function', grocery);
-                // if (data.deletedCount > 0) {
-                //     console.log('deleted', data);
-                // }
+
+        const proceed = window.confirm('Are You Sure?')
+        if (proceed) {
+            fetch(`http://localhost:5000/groceries/${id}`, {
+                method: 'DELETE',
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    console.log('into delete function', grocery);
+                    // if (data.deletedCount > 0) {
+                    //     console.log('deleted', data);
+                    // }
+
+
+                })
+        }
+
+
     }
     return (
         <div>

@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddItem from './pages/Home/AddItem/AddItem';
+import ConfirmationModal from './pages/Home/ConfirmationModal/ConfirmationModal';
 import GroceryDetails from './pages/Home/GroceryDetails/GroceryDetails';
 import Home from './pages/Home/Home';
 import ManageInventory from './pages/Home/ManageInventory/ManageInventory';
@@ -28,7 +29,9 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
+        <Route path='modal' element={<ConfirmationModal></ConfirmationModal>}></Route>
       </Routes>
+
       <Footer></Footer>
     </div>
   );
