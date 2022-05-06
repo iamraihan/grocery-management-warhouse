@@ -2,9 +2,14 @@ import React from 'react';
 import { FaGoogle, FaFacebookF, FaGithub } from "react-icons/fa";
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    let from = location.state?.from?.pathname || "/";
+    if (googleUser) { navigate(from, { replace: true }); }
     return (
         <div>
             <p>Sign In With</p>

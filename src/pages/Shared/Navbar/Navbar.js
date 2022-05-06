@@ -31,7 +31,7 @@ const Navbar = () => {
                     {
                         user ? <button onClick={logout} className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer  px-6 py-1'>Logout</button>
                             :
-                            <Link to='/login' className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer  px-6 py-1'>Login</Link>
+                            <Link to='/login' className=' bg-blue-600 text-white rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer capitalize px-6 py-1'>Login</Link>
                     }
                 </div>
 
