@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GroceryDetails = () => {
     const { id } = useParams()
@@ -15,7 +17,7 @@ const GroceryDetails = () => {
     const deliverHandler = () => {
 
         grocery.quantity = grocery.quantity - 1
-        if (grocery.quantity < 0) return // set a toast already stock is empty
+        if (grocery.quantity < 0) return toast.warn('Quantity is empty')
         console.log('minus value', typeof (grocery.quantity));
         fetch(`http://localhost:5000/grocery/${id}`, {
             method: 'PUT',
@@ -28,8 +30,7 @@ const GroceryDetails = () => {
             .then((data) => {
                 console.log('success', data)
                 setUpdateQuantity(data)
-
-                //toast
+                toast.success('Delivered Successfully')
 
             });
     }
@@ -53,9 +54,10 @@ const GroceryDetails = () => {
             .then((data) => {
                 console.log('success', data)
                 setUpdateQuantity(data)
+                toast.success('Stock Update Successfully')
                 event.target.reset()
 
-                //toast
+
 
             });
 
@@ -83,20 +85,12 @@ const GroceryDetails = () => {
                 </div>
             </div>
 
-            {/* <div>
-                <form onSubmit={updateStockQuantity} className='mt-5'>
-                    <input type="text" name="increaseQuantity" id="" placeholder='Update Inventory' /> <br />
-                    <input className='bg-slate-700 text-white cursor-pointer' type="submit" value="Update" />
-                </form>
-            </div> */}
-
-
             {/* update stock section  */}
             <div>
                 <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-10">
-                    <form>
+                    <form onSubmit={updateStockQuantity}>
                         <div className="form-group mb-6">
-                            <input type="text" name='increaseQuantity' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Update Stock" />
+                            <input type="number" name='increaseQuantity' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Update Stock" />
                         </div>
 
 
@@ -112,7 +106,7 @@ const GroceryDetails = () => {
                     <button className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer'>Manage Inventory</button>
                 </Link>
             </div>
-
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

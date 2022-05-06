@@ -29,7 +29,6 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
-        <Route path='modal' element={<ConfirmationModal></ConfirmationModal>}></Route>
       </Routes>
 
       <Footer></Footer>

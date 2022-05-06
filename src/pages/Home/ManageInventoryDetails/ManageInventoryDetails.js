@@ -1,4 +1,5 @@
-import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ManageInventoryDetails = ({ grocery }) => {
 
@@ -21,7 +22,7 @@ const ManageInventoryDetails = ({ grocery }) => {
                     // if (data.deletedCount > 0) {
                     //     console.log('deleted', data);
                     // }
-
+                    toast.success('Data Deleted Successfully')
 
                 })
         }
@@ -68,6 +69,7 @@ const ManageInventoryDetails = ({ grocery }) => {
                         </tbody>
                     </table>
                 </div>
+                <ToastContainer></ToastContainer>
             </div>
         </div>
 

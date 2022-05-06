@@ -29,7 +29,7 @@ const Carousel = () => {
             <div className="carousel-inner relative w-full overflow-hidden">
                 <div className="carousel-item active relative float-left w-full">
                     <img style={{ height: 'calc(100vh - 80px)' }}
-                        src="https://i.ibb.co/WxLZTsf/supermarket-5202138-1920.jpg"
+                        src="https://i.ibb.co/1dbN07P/family-2923690-1920.jpg"
                         className="block w-full object-cover	"
                         alt="..."
 
@@ -41,7 +41,7 @@ const Carousel = () => {
                 </div>
                 <div className="carousel-item relative float-left w-full">
                     <img style={{ height: 'calc(100vh - 80px)' }}
-                        src="https://i.ibb.co/1dbN07P/family-2923690-1920.jpg"
+                        src="https://i.ibb.co/WxLZTsf/supermarket-5202138-1920.jpg"
                         className="block w-full object-cover	"
                         alt="..."
 
