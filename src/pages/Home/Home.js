@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import useGrocery from '../../Hooks/useGrocery';
 import Carousel from './Carousel/Carousel';
 import Grocery from './Grocery/Grocery';
-import ManageInventory from './ManageInventory/ManageInventory';
+import ImageGallery from './ImageGallery/ImageGallery';
+import Testimonial from './Testimonial/Testimonial';
 
 const Home = () => {
     const [grocery, setGrocery] = useGrocery()
@@ -21,6 +22,13 @@ const Home = () => {
                 {
                     grocery.map(grocery => <Grocery key={grocery._id} grocery={grocery}></Grocery>)
                 }
+            </div>
+            <div className='mt-16'>
+                <Testimonial></Testimonial>
+            </div>
+            <div className='mt-16'>
+                <h2 className='text-5xl text-center'>Gallery</h2>
+                <ImageGallery></ImageGallery>
             </div>
         </div>
     );

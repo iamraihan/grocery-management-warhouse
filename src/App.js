@@ -4,6 +4,7 @@ import AddItem from './pages/Home/AddItem/AddItem';
 import GroceryDetails from './pages/Home/GroceryDetails/GroceryDetails';
 import Home from './pages/Home/Home';
 import ManageInventory from './pages/Home/ManageInventory/ManageInventory';
+import Footer from './pages/Shared/Footer/Footer';
 import Login from './pages/Shared/Login/Login';
 import Navbar from './pages/Shared/Navbar/Navbar';
 import Register from './pages/Shared/Register/Register';
@@ -28,6 +29,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

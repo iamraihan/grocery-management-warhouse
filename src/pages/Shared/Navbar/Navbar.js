@@ -14,7 +14,7 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const [open, setOpen] = useState(false)
     return (
-        <div className='bg-white container mx-auto'>
+        <div className='bg-gray-100  container mx-auto'>
             <div onClick={() => setOpen(!open)} className='w-10 h-10 z-10 md:hidden'>
                 {open ? <XIcon className='h-8'></XIcon> : <MenuIcon></MenuIcon>}
             </div>
