@@ -38,7 +38,7 @@ const GroceryDetails = () => {
     const updateStockQuantity = (event) => {
         event.preventDefault()
         const increase = parseInt(event.target.increaseQuantity.value)
-        if (!increase) return //set a toast
+        if (!increase) return toast.error('Please Add Some Product!!')
         // console.log(typeof (increase));
 
         grocery.quantity = parseInt(grocery.quantity + increase)
@@ -63,12 +63,13 @@ const GroceryDetails = () => {
 
     }
     return (
-        <div>
+        <div >
             <div>
+                <h2 className='text-center text-3xl'>Inventory Details</h2>
                 <div className="flex justify-center mt-10">
-                    <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
-                        <img className=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src={grocery.image} alt="" />
-                        <div className="p-6 flex flex-col justify-start">
+                    <div className="flex flex-col md:flex-row md:max-w-full rounded-lg bg-white shadow-lg">
+                        <img className=" w-full h-96 md:h-auto object-cover md:w-64 rounded-t-lg md:rounded-none md:rounded-l-lg" src={grocery.image} alt="" />
+                        <div className="p-6 flex flex-col  justify-start">
                             <h5 className="text-gray-900 text-xl font-medium mb-2">{grocery.name}</h5>
                             <p className="text-gray-700 text-base mb-4">{grocery.company}
                             </p>
@@ -78,7 +79,7 @@ const GroceryDetails = () => {
                                 <h3>${grocery.price}</h3>
                                 <h3>Quantity: {grocery.quantity}</h3>
                             </div>
-                            <button onClick={deliverHandler} className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer'>Delivered</button>
+                            <button onClick={deliverHandler} className='inline-block mt-5 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer'>Delivered</button>
 
                         </div>
                     </div>
@@ -87,7 +88,8 @@ const GroceryDetails = () => {
 
             {/* update stock section  */}
             <div>
-                <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-10">
+                <h2 className='text-3xl text-center mt-32'>Update Stock</h2>
+                <div className="block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto ">
                     <form onSubmit={updateStockQuantity}>
                         <div className="form-group mb-6">
                             <input type="number" name='increaseQuantity' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Update Stock" />
