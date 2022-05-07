@@ -5,6 +5,7 @@ import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 
 
 const Register = () => {
@@ -15,11 +16,13 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    // const [sendEmailVerification, sending, verificationError] = useSendEmailVerification(auth);
 
 
 
-    const registerHandler = event => {
+    const registerHandler = (event) => {
         event.preventDefault()
         const email = event.target.email.value
         const password = event.target.password.value
@@ -33,6 +36,9 @@ const Register = () => {
         else {
             toast.warn('Dont Match Password')
         }
+
+        // await sendEmailVerification();
+        // alert('Sent email');
     }
     return (
         <div>
@@ -69,7 +75,7 @@ const Register = () => {
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
                                         placeholder="Email address"
-                                    />
+                                        required />
                                 </div>
 
                                 {/* Password input  */}
@@ -79,7 +85,7 @@ const Register = () => {
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
                                         placeholder="Password"
-                                    />
+                                        required />
                                 </div>
                                 {/* Confirm Password input  */}
                                 <div className="mb-6">
@@ -88,7 +94,7 @@ const Register = () => {
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
                                         placeholder="Confirm Password"
-                                    />
+                                        required />
                                 </div>
 
                                 <div className="flex justify-between items-center mb-6">

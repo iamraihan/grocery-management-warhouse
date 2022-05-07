@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { async } from '@firebase/util';
 
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
+    const emailRef = useRef()
 
     let errorElement;
     const [
@@ -17,6 +20,10 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
+        auth
+    );
 
     let from = location.state?.from?.pathname || "/";
 
@@ -33,6 +40,16 @@ const Login = () => {
         // console.log(email, password);
         if (error) {
             errorElement = toast.error(error?.message)
+        }
+    }
+
+    const resetPasswordHandler = async (event) => {
+        const email = emailRef.current.value
+        await sendPasswordResetEmail(email);
+        if (email) {
+            toast.success('Sent Email')
+        } else {
+            toast.warn('Please enter your email')
         }
     }
     return (
@@ -66,7 +83,7 @@ const Login = () => {
                                 {/* Email input */}
                                 <div className="mb-6">
                                     <input
-                                        type="text" name='email'
+                                        ref={emailRef} type="text" name='email'
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
                                         placeholder="Email address"
@@ -85,7 +102,8 @@ const Login = () => {
 
 
                                 <div className="flex justify-between items-center mb-6">
-                                    <a href="#!" className="text-gray-800">Forgot password?</a>
+                                    <p onClick={resetPasswordHandler} className="text-gray-800 cursor-pointer">Forgot password?</p>
+
                                 </div>
 
                                 <div className="text-center lg:text-left">
