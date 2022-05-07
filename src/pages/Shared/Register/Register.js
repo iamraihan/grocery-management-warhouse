@@ -3,6 +3,9 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Register = () => {
     const navigate = useNavigate()
@@ -22,10 +25,14 @@ const Register = () => {
         const password = event.target.password.value
         const confirmPassword = event.target.confirmPassword.value
 
-        // console.log(email, password, confirmPassword);
-        createUserWithEmailAndPassword(email, password)
-        navigate('/')
-
+        if (password === confirmPassword) {
+            // console.log(email, password, confirmPassword);
+            createUserWithEmailAndPassword(email, password)
+            navigate('/')
+        }
+        else {
+            toast.warn('Dont Match Password')
+        }
     }
     return (
         <div>
@@ -107,6 +114,7 @@ const Register = () => {
                     </div>
                 </div>
             </section >
+            <ToastContainer></ToastContainer>
         </div >
     );
 };

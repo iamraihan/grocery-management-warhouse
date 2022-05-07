@@ -3,11 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
+    let errorElement;
     const [
         signInWithEmailAndPassword,
         user,
@@ -20,12 +23,17 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
+
+
     const loginSubmitHandler = event => {
         event.preventDefault()
         const email = event.target.email.value
         const password = event.target.password.value
         signInWithEmailAndPassword(email, password)
-        console.log(email, password);
+        // console.log(email, password);
+        if (error) {
+            errorElement = toast.error(error?.message)
+        }
     }
     return (
         <div>
@@ -99,6 +107,7 @@ const Login = () => {
                     </div>
                 </div>
             </section >
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
