@@ -158,7 +158,7 @@ const Footer = () => {
                 </div>
                 <div className="text-center p-6 bg-gray-200">
                     <span>© {new Date().getFullYear()} Reserved By </span>
-                    <a className="text-gray-600 font-semibold" href="https://tailwind-elements.com/">Raihan Ali</a>
+                    <a className="text-gray-600 font-semibold" href="https:raihanali.com">Raihan Ali</a>
                 </div>
             </footer>
         </div>
