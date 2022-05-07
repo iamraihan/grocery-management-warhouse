@@ -13,6 +13,7 @@ const ManageInventory = () => {
     return (
         <div>
             <div>
+                <h2 className='text-center my-4 text-3xl'>All Inventories</h2>
                 {groceries.map(grocery => <ManageInventoryDetails key={grocery._id} grocery={grocery}></ManageInventoryDetails>)}
             </div>
             <div className="mt-5 text-center">

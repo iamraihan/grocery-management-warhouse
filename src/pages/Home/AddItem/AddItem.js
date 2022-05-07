@@ -37,8 +37,8 @@ const AddItem = () => {
     }
     return (
         <div>
-            <div>
-                <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto mt-10">
+            <div> <h2 className='text-center mt-10 text-3xl'>Add new Inventory</h2>
+                <div className="block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto">
                     <form onSubmit={addItemHandler}>
                         <div className="form-group mb-6">
                             <input type="text" name='quantity' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none text-center" placeholder="Quantity" />

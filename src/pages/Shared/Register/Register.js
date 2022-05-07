@@ -6,6 +6,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import Spinner from '../../Spinner/Spinner';
 
 
 const Register = () => {
@@ -24,7 +25,9 @@ const Register = () => {
     );
 
 
-
+    if (loading) {
+        return <Spinner></Spinner>
+    }
     const registerHandler = (event) => {
         event.preventDefault()
         const email = event.target.email.value

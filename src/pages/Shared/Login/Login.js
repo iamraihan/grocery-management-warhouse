@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { async } from '@firebase/util';
+import Spinner from '../../Spinner/Spinner';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -31,7 +32,9 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
-
+    if (loading) {
+        return <Spinner></Spinner>
+    }
     const loginSubmitHandler = event => {
         event.preventDefault()
         const email = event.target.email.value

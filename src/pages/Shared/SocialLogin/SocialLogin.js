@@ -3,11 +3,15 @@ import { FaGoogle, FaFacebookF, FaGithub } from "react-icons/fa";
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Spinner from '../../Spinner/Spinner';
 
 const SocialLogin = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    if (googleLoading) {
+        return <Spinner></Spinner>
+    }
     let from = location.state?.from?.pathname || "/";
     if (googleUser) { navigate(from, { replace: true }); }
     return (
