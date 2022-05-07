@@ -32,8 +32,15 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
+
     if (loading) {
         return <Spinner></Spinner>
+    }
+    if (error) {
+        errorElement = <p className='text-red-400'>{error.message}</p>
+        console.log(error);
+
+
     }
     const loginSubmitHandler = event => {
         event.preventDefault()
@@ -41,9 +48,8 @@ const Login = () => {
         const password = event.target.password.value
         signInWithEmailAndPassword(email, password)
         // console.log(email, password);
-        if (error) {
-            errorElement = toast.error(error?.message)
-        }
+
+
     }
 
     const resetPasswordHandler = async (event) => {
@@ -90,7 +96,7 @@ const Login = () => {
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
                                         placeholder="Email address"
-                                    />
+                                        required />
                                 </div>
 
                                 {/* Password input  */}
@@ -100,10 +106,10 @@ const Login = () => {
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
                                         placeholder="Password"
-                                    />
+                                        required />
                                 </div>
 
-
+                                {errorElement}
                                 <div className="flex justify-between items-center mb-6">
                                     <p onClick={resetPasswordHandler} className="text-gray-800 cursor-pointer">Forgot password?</p>
 
