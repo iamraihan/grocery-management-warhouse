@@ -8,7 +8,7 @@ const GroceryDetails = () => {
     const [grocery, setGrocery] = useState({})
     const [updateQuantity, setUpdateQuantity] = useState(0)
     useEffect(() => {
-        const url = `http://localhost:5000/grocery/${id}`
+        const url = `https://floating-crag-70347.herokuapp.com/grocery/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setGrocery(data))
@@ -20,7 +20,7 @@ const GroceryDetails = () => {
         if (grocery.quantity < 0) return toast.warn('Quantity is empty')
         grocery.sold = grocery.sold + 1
         // console.log('minus value', typeof (grocery.quantity));
-        fetch(`http://localhost:5000/grocery/${id}`, {
+        fetch(`https://floating-crag-70347.herokuapp.com/grocery/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ quantity: grocery.quantity, sold: grocery.sold }),
             headers: {
@@ -44,7 +44,7 @@ const GroceryDetails = () => {
 
         grocery.quantity = parseInt(grocery.quantity + increase)
         console.log(typeof (grocery.quantity));
-        fetch(`http://localhost:5000/grocery/${id}`, {
+        fetch(`https://floating-crag-70347.herokuapp.com/grocery/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ quantity: grocery.quantity }),
             headers: {

@@ -14,7 +14,7 @@ const AddItem = () => {
         const company = event.target.company.value
         const description = event.target.description.value
 
-        fetch('http://localhost:5000/groceries', {
+        fetch('https://floating-crag-70347.herokuapp.com/groceries', {
             method: 'POST',
             body: JSON.stringify({
                 quantity,

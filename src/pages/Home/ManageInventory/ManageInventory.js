@@ -9,11 +9,11 @@ const ManageInventory = () => {
     const [user, loading, error] = useAuthState(auth);
     // console.log(user.email);
     useEffect(() => {
-        // fetch('http://localhost:5000/groceries')
+        // fetch('https://floating-crag-70347.herokuapp.com/groceries')
         //     .then(res => res.json())
         //     .then(data => setGroceries(data))
 
-        fetch('http://localhost:5000/groceries', {
+        fetch('https://floating-crag-70347.herokuapp.com/groceries', {
             method: "GET",
             headers: {
                 'authorization': `${user.email} ${localStorage.getItem('accessToken')}`,

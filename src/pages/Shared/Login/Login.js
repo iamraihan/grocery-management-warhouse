@@ -30,7 +30,7 @@ const Login = () => {
 
     if (user) {
         // console.log(user.user.email);
-        const url = 'http://localhost:5000/login'
+        const url = 'https://floating-crag-70347.herokuapp.com/login'
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({

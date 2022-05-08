@@ -13,7 +13,7 @@ const ManageInventoryDetails = ({ grocery }) => {
 
         const proceed = window.confirm('Are You Sure?')
         if (proceed) {
-            fetch(`http://localhost:5000/groceries/${id}`, {
+            fetch(`https://floating-crag-70347.herokuapp.com/groceries/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

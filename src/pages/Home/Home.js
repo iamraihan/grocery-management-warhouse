@@ -11,7 +11,7 @@ const Home = () => {
     // const [grocerys, setGrocerys] = useState([])
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/grocery')
+    //     fetch('https://floating-crag-70347.herokuapp.com/grocery')
     //         .then(res => res.json())
     //         .then(data => setGrocerys(data))
     // }, [])
