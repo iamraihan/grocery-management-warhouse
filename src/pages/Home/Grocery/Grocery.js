@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Grocery = ({ grocery }) => {
-    const { name, image, description, company, quantity, _id } = grocery
+    const { name, image, description, company, quantity, _id, } = grocery
     const navigate = useNavigate()
 
     const redirectHandler = id => {

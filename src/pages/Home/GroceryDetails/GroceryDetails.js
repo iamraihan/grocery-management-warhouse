@@ -17,11 +17,13 @@ const GroceryDetails = () => {
     const deliverHandler = () => {
 
         grocery.quantity = grocery.quantity - 1
+        grocery.sold = grocery.sold + 1
+        console.log(grocery.sold);
         if (grocery.quantity < 0) return toast.warn('Quantity is empty')
         // console.log('minus value', typeof (grocery.quantity));
         fetch(`http://localhost:5000/grocery/${id}`, {
             method: 'PUT',
-            body: JSON.stringify({ quantity: grocery.quantity }),
+            body: JSON.stringify({ quantity: grocery.quantity, sold: grocery.sold }),
             headers: {
                 'Content-type': 'application/json'
             },
@@ -78,6 +80,7 @@ const GroceryDetails = () => {
                             <div className='flex justify-around'>
                                 <h3>${grocery.price}</h3>
                                 <h3>Quantity: {grocery.quantity}</h3>
+                                <h3>Sold: {grocery.sold}</h3>
                             </div>
                             <button onClick={deliverHandler} className='inline-block mt-5 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer'>Delivered</button>
 

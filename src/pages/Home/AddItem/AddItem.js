@@ -7,6 +7,7 @@ const AddItem = () => {
     const addItemHandler = event => {
         event.preventDefault()
         const quantity = event.target.quantity.value
+        const sold = event.target.sold.value
         const image = event.target.image.value
         const price = event.target.price.value
         const name = event.target.name.value
@@ -17,6 +18,7 @@ const AddItem = () => {
             method: 'POST',
             body: JSON.stringify({
                 quantity,
+                sold,
                 image,
                 price,
                 name,
@@ -42,6 +44,9 @@ const AddItem = () => {
                     <form onSubmit={addItemHandler}>
                         <div className="form-group mb-6">
                             <input type="text" name='quantity' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none text-center" placeholder="Quantity" />
+                        </div>
+                        <div className="form-group mb-6">
+                            <input type="text" name='sold' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none text-center" placeholder="Sold" />
                         </div>
 
                         <div className="form-group mb-6">
