@@ -17,9 +17,8 @@ const GroceryDetails = () => {
     const deliverHandler = () => {
 
         grocery.quantity = grocery.quantity - 1
-        grocery.sold = grocery.sold + 1
-        console.log(grocery.sold);
         if (grocery.quantity < 0) return toast.warn('Quantity is empty')
+        grocery.sold = grocery.sold + 1
         // console.log('minus value', typeof (grocery.quantity));
         fetch(`http://localhost:5000/grocery/${id}`, {
             method: 'PUT',

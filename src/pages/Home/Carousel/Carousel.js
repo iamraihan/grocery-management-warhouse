@@ -1,5 +1,5 @@
 import React from 'react';
-import 'tw-elements';
+// import 'tw-elements';
 
 const Carousel = () => {
     return (

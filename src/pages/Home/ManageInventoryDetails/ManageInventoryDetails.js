@@ -10,6 +10,7 @@ const ManageInventoryDetails = ({ grocery }) => {
     // console.log(grocery);
     const deleteData = id => {
 
+
         const proceed = window.confirm('Are You Sure?')
         if (proceed) {
             fetch(`http://localhost:5000/groceries/${id}`, {

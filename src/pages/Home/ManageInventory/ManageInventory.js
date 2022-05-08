@@ -7,7 +7,7 @@ import ManageInventoryDetails from '../ManageInventoryDetails/ManageInventoryDet
 const ManageInventory = () => {
     const [groceries, setGroceries] = useState([])
     const [user, loading, error] = useAuthState(auth);
-    console.log(user.email);
+    // console.log(user.email);
     useEffect(() => {
         // fetch('http://localhost:5000/groceries')
         //     .then(res => res.json())

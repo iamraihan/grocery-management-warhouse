@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Blogs from './Blogs/Blogs';
+import NotFound from './NotFound/NotFound';
 import AddItem from './pages/Home/AddItem/AddItem';
 import ConfirmationModal from './pages/Home/ConfirmationModal/ConfirmationModal';
 import GroceryDetails from './pages/Home/GroceryDetails/GroceryDetails';
@@ -29,6 +31,8 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='login' element={<Login></Login>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
       <Footer></Footer>
