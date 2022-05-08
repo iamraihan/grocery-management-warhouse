@@ -18,7 +18,7 @@ const GroceryDetails = () => {
 
         grocery.quantity = grocery.quantity - 1
         if (grocery.quantity < 0) return toast.warn('Quantity is empty')
-        console.log('minus value', typeof (grocery.quantity));
+        // console.log('minus value', typeof (grocery.quantity));
         fetch(`http://localhost:5000/grocery/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ quantity: grocery.quantity }),

@@ -1,13 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import ManageInventoryDetails from '../ManageInventoryDetails/ManageInventoryDetails';
 
 const ManageInventory = () => {
     const [groceries, setGroceries] = useState([])
+    const [user, loading, error] = useAuthState(auth);
+    console.log(user.email);
     useEffect(() => {
-        fetch('http://localhost:5000/groceries')
+        // fetch('http://localhost:5000/groceries')
+        //     .then(res => res.json())
+        //     .then(data => setGroceries(data))
+
+        fetch('http://localhost:5000/groceries', {
+            method: "GET",
+            headers: {
+                'authorization': `${user.email} ${localStorage.getItem('accessToken')}`,
+                "Content-type": "application/json"
+            }
+        })
             .then(res => res.json())
-            .then(data => setGroceries(data))
+            .then(data => setGroceries(data));
+        // .catch(err => console.log(err));
     }, [groceries])
 
     return (
