@@ -14,7 +14,7 @@
 - React Icons
 - Hero Icons
 
-## Fetuses
+## Features
 
 - Fully responsive on mobile, tablet & desktop devices.
 - Login and user-based functionalities with JWT authentication.
