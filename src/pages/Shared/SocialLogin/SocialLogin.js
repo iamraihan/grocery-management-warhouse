@@ -12,8 +12,27 @@ const SocialLogin = () => {
     if (googleLoading) {
         return <Spinner></Spinner>
     }
+
+    console.log(googleUser?.user?.email);
     let from = location.state?.from?.pathname || "/";
-    if (googleUser) { navigate(from, { replace: true }); }
+    if (googleUser) {
+        const url = 'https://floating-crag-70347.herokuapp.com/login'
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: googleUser.user.email
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.setItem('accessToken', data.token)
+                navigate(from, { replace: true });
+            });
+
+    }
     return (
         <div>
             <p>Sign In With</p>
